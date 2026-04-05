@@ -591,19 +591,9 @@ export default function App() {
       }}
     >
       <div style={{ maxWidth: 1080, margin: "0 auto", position: "relative" }}>
-        <div
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-          }}
-        >
-          <img
-            src="/logo.png"
-            alt="School logo"
-            style={{ height: 56, objectFit: "contain" }}
-          />
-        </div>
+        <div className="logo">
+  <img src="/logo.png" alt="School logo" />
+</div>
 
         <div style={{ paddingTop: 8 }}>
           <h1
@@ -1708,6 +1698,31 @@ export default function App() {
             to { opacity: 1; transform: translateY(0); }
           }
         `}</style>
+        <style>{`
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+  }
+
+  .logo img {
+    height: 56px;
+    object-fit: contain;
+  }
+
+  /* Hide on mobile */
+  @media (max-width: 768px) {
+    .logo {
+      display: none;
+    }
+  }
+`}</style>
       </div>
     </div>
   );
